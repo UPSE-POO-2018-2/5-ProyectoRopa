@@ -1,5 +1,5 @@
 
-public abstract class Producto implements Representable, Tributable {
+public abstract class Producto implements Representable, Tributable, Comparable<Producto> {
 	protected long id;
 	protected double precio;
 	protected String nombre;
@@ -74,6 +74,23 @@ public abstract class Producto implements Representable, Tributable {
 	{
 		double impuesto = this.precio * TASAIMPUESTO;
 		return impuesto;
+	}
+	
+	@Override
+	public int compareTo(Producto p) {
+	
+		if(this.precio>p.precio)
+			return 1;
+		
+		if(this.precio<p.precio)
+			return -1;
+		
+		if(this.precio == p.precio)
+		{
+			Long x = this.id;
+			return x.compareTo(p.id); 
+		}
+		return 0;
 	}
 
 }

@@ -1,0 +1,4 @@
+
+public enum MedioPago {
+	PAYPAL, TARJETA_CREDITO, BITCOIN, EFECTIVO;
+}
